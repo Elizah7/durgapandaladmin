@@ -10,7 +10,7 @@ const EnterNewPasswordPage = () => {
         password: "",
     }
     const { id, token } = useParams()
-    console.log(id,token)
+    console.log(id, token)
     const [data, setData] = useState(init)
     const toast = useToast()
 

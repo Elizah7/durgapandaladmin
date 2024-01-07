@@ -28,4 +28,5 @@ export const postvideoaction = (data) => (dispatch) => {
       .then(r => dispatch({ type: POST_IMAGE_SUCCESS, payload: r.data }))
       .catch(err => dispatch({ type: POST_IMAGE_FAILURE, payload: err.message }))
 }
+
 export default postimageaction

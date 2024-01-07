@@ -8,6 +8,8 @@ import Navbar from '../Components/navbar'
 import Welcomenote from '../Components/welcomenote';
 import ImageSlider from '../Components/slider';
 import Sidebar from '../Components/Sidebar';
+import NavratriCard from '../Components/NavratriCard';
+import { navratriContent } from '../Components/Data/DeviCardDetails';
 
 
 const HomePage = () => {
@@ -118,10 +120,10 @@ const HomePage = () => {
           </Box>
         </section>
         <section width="100%">
-          <Box width="100%" height={["200px", "200px", "500px", "500px"]}>
-
-          </Box>
-
+          {
+            navratriContent.map((ele)=> <NavratriCard image={ele.image} heading={ele.heading} description={ele.description} significance={ele.significance}/>)
+          }
+         
         </section>
       </Box>
     </Box>

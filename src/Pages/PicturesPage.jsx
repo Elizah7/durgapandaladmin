@@ -92,19 +92,6 @@ const PicturesPage = () => {
     dispatch(getImagesAction())
   }, [])
 
-  const data = [
-
-    { image: "https://wallpapercave.com/wp/wp10023692.jpg", caption: "Mata Shailputri" },
-    { image: "https://e1.pxfuel.com/desktop-wallpaper/766/966/desktop-wallpaper-goddess-brahmacharini-maa-shailputri.jpg", caption: "Mata Bramhacharini" },
-    { image: "https://wallpapercave.com/dwp1x/wp10074590.png", caption: "Mata Chandraghanta" },
-    { image: "https://i0.wp.com/wordzz.com/wp-content/uploads/durga-maa/navdurga/kushmanda/done/Maa-Kushmanda.jpg?resize=1068%2C785&ssl=1", caption: "Mata Kushmandha" },
-    { image: "https://www.bhagwankiphoto.com/wp-content/uploads/2021/09/Spiritual-Goddess-Skandamata-Images.jpg", caption: "Mata Skandmata" },
-    { image: "https://www.jagranimages.com/images/newimg/22102020/22_10_2020-maa-katyayani-katha_20927001.jpg", caption: "Mata Katyani" },
-    { image: "https://images.pexels.com/photos/12994378/pexels-photo-12994378.jpeg?cs=srgb&dl=pexels-kolkatar-chobiwala-12994378.jpg&fm=jpg", caption: "Mata Kalratri" },
-    { image: "https://static.india.com/wp-content/uploads/2023/03/Maa-Mahagauri-1.jpg?impolicy=Medium_Resize&w=1200&h=800", caption: "Mata Mahagauri" },
-    { image: "https://images.herzindagi.info/image/2021/Oct/siddhidatri-devi-ki-aarti.jpg", caption: "Mata Sidhidatri" },
-
-  ]
   let newdata = new Array(200).fill(-1)
   let rand = 'rgb(' + (Math.floor((256 - 199) * Math.random()) + 200) + ',' + (Math.floor((256 - 199) * Math.random()) + 200) + ',' + (Math.floor((256 - 199) * Math.random()) + 200) + ')'
   return (<Stack>

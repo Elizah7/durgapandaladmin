@@ -1,0 +1,34 @@
+import React, { useEffect, useRef } from 'react';
+import Webcam from 'react-webcam';
+import io from 'socket.io-client';
+
+const App = () => {
+  const webcamRef = useRef(null);
+  const socket = io.connect('http://localhost:3001'); // Update with your server's URL
+
+  useEffect(() => {
+    socket.on('startStream', () => {
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(stream => {
+          webcamRef.current.srcObject = stream;
+        })
+        .catch(error => {
+          console.error('Error accessing camera and microphone:', error);
+        });
+    });
+  }, []);
+
+  const startStream = () => {
+    socket.emit('startStream');
+  };
+
+  return (
+    <div className="app">
+      <h1>Live Video Streaming App</h1>
+      <button onClick={startStream}>Start Stream</button>
+      <Webcam ref={webcamRef} />
+    </div>
+  );
+};
+
+export default App;

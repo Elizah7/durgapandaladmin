@@ -12,6 +12,8 @@ import {
   CSSReset,
 } from '@chakra-ui/react';
 import Navbar from './navbar';
+import { useDispatch } from 'react-redux';
+import { postChatBotAction } from '../Redux/chatbot/action';
 
 const ChatMessage = ({ message, isUser }) => {
   return (
@@ -41,25 +43,28 @@ const ChatMessage = ({ message, isUser }) => {
 const ChatbotUI = () => {
   const [messages, setMessages] = React.useState([]);
   const [inputValue, setInputValue] = React.useState('');
-
+  const dispatch = useDispatch()
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: inputValue, isUser: true },
       ]);
-
+       
       // Replace this part with your logic to get the chatbot response
       // For example:
       // - You can use an API call to a chatbot service to get the response.
       // - Or, you can use a custom logic to generate chatbot responses.
       // For this example, let's just use a simple hardcoded response.
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: 'I am Chatbot, how can I assist you?', isUser: false },
-        ]);
-      }, 1000);
+      dispatch(postChatBotAction(inputValue))
+      .then(res=>console.log(res))
+      .catch(err=>console.log(err))
+      // setTimeout(() => {
+      //   setMessages((prevMessages) => [
+      //     ...prevMessages,
+      //     { text: 'I am Chatbot, how can I assist you?', isUser: false },
+      //   ]);
+      // }, 1000);
 
       setInputValue('');
     }
@@ -68,7 +73,7 @@ const ChatbotUI = () => {
   return (
     <ChakraProvider>
       <CSSReset />
-      <Navbar/>
+      <Navbar />
       <Flex
         direction="column"
         bg="rgb(253, 141, 20)"

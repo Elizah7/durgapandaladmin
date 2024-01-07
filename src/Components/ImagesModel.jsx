@@ -13,12 +13,12 @@ import ImageLoader from './ImageLoader'
 const ImagesModel = ({ _id, image}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (<Box onClick={onOpen}>
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} height="60vh" >
             <ModalOverlay />
             <ModalContent>
-                <ModalCloseButton/>
-                <ModalBody textAlign="center" marginTop="10%" width="100%">
-                    <Image src={image} width="100%" margin="auto"/>
+                <ModalCloseButton backgroundColor="red"/>
+                <ModalBody textAlign="center" marginTop="10%" width="100%" height="60vh">
+                    <Image src={image} width="100%" height="100%" margin="auto" objectFit="cover"/>
                 </ModalBody>
             </ModalContent>
         </Modal>
